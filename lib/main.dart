@@ -1,4 +1,5 @@
 import 'package:dwd_website/constants/colors.dart';
+import 'package:dwd_website/constants/fonts.dart';
 import 'package:dwd_website/constants/info.dart';
 import 'package:dwd_website/pages/pages.dart';
 import 'package:dwd_website/widgets/hamburger.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
           seedColor: AppColors.primaryColor,
         ),
+        textTheme: AppFonts.headingFont,
         useMaterial3: true,
       ),
       home: MyHomePage(),
@@ -59,7 +61,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: AppBar(
                     backgroundColor:
                         Theme.of(context).colorScheme.inversePrimary,
-                    title: const Text(AppInfo.title),
+                    title: Text(
+                      AppInfo.title,
+                      style: AppFonts.headingStyle(),
+                    ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),

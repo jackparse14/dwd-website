@@ -1,4 +1,5 @@
 import 'package:dwd_website/constants/colors.dart';
+import 'package:dwd_website/constants/fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:dwd_website/constants/info.dart';
 
@@ -22,11 +23,12 @@ class HamburgerDropDown extends StatelessWidget {
           decoration: const BoxDecoration(
             color: AppColors.primaryColor,
           ),
-          child: const Padding(
-            padding: EdgeInsets.fromLTRB(28, 36, 28, 36),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
             child: Text(
               AppInfo.title,
-              style: TextStyle(fontSize: 24, color: AppColors.lightColor),
+              textAlign: TextAlign.center,
+              style: AppFonts.headingStyle(color: AppColors.lightColor),
             ),
           ),
         ),
@@ -34,7 +36,10 @@ class HamburgerDropDown extends StatelessWidget {
         ...destinations.map(
           (Pages destination) {
             return NavigationDrawerDestination(
-              label: Text(destination.label),
+              label: Text(
+                destination.label,
+                style: AppFonts.navigationStyle(),
+              ),
               icon: destination.icon,
               selectedIcon: destination.selectedIcon,
             );
