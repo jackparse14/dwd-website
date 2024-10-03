@@ -128,42 +128,42 @@ class Pages {
 const List<Pages> destinations = <Pages>[
   Pages(
     'Home',
-    Icon(Icons.widgets_outlined),
-    Icon(Icons.widgets),
+    Icon(Icons.home_outlined),
+    Icon(Icons.home),
   ),
   Pages(
     'About',
-    Icon(Icons.format_paint_outlined),
-    Icon(Icons.format_paint),
+    Icon(Icons.info_outlined),
+    Icon(Icons.info),
   ),
   Pages(
     'Services',
-    Icon(Icons.settings_outlined),
-    Icon(Icons.settings),
+    Icon(Icons.mouse_outlined),
+    Icon(Icons.mouse),
   ),
   Pages(
     'Pricing',
-    Icon(Icons.settings_outlined),
-    Icon(Icons.settings),
+    Icon(Icons.sell_outlined),
+    Icon(Icons.sell),
   ),
   Pages(
     'Reviews',
-    Icon(Icons.settings_outlined),
-    Icon(Icons.settings),
+    Icon(Icons.remove_red_eye_outlined),
+    Icon(Icons.remove_red_eye),
   ),
   Pages(
     'FAQ',
-    Icon(Icons.settings_outlined),
-    Icon(Icons.settings),
+    Icon(Icons.help_outline),
+    Icon(Icons.help),
   ),
   Pages(
     'Blog',
-    Icon(Icons.settings_outlined),
-    Icon(Icons.settings),
+    Icon(Icons.edit_outlined),
+    Icon(Icons.edit),
   ),
   Pages(
     'Contact',
-    Icon(Icons.settings_outlined),
-    Icon(Icons.settings),
+    Icon(Icons.call_outlined),
+    Icon(Icons.call),
   ),
 ];
