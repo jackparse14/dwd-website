@@ -86,15 +86,21 @@ class _HamburgerDropDown extends State<HamburgerDropDown> {
       onDestinationSelected: handleScreenChanged,
       selectedIndex: selectedIndex,
       children: <Widget>[
-        const Padding(
-          padding: EdgeInsets.fromLTRB(28, 16, 16, 10),
-          child: Text(
-            'Dartford Web Designs',
-            style: TextStyle(color: AppColors.lightColor),
+        Container(
+          decoration: const BoxDecoration(
+            color: AppColors.primaryColor,
+          ),
+          child: const Padding(
+            padding: EdgeInsets.fromLTRB(28, 16, 28, 16),
+            child: Text(
+              AppInfo.title,
+              style: TextStyle(fontSize: 24, color: AppColors.lightColor),
+            ),
           ),
         ),
+        const SizedBox(height: 16),
         ...destinations.map(
-          (ExampleDestination destination) {
+          (Pages destination) {
             return NavigationDrawerDestination(
               label: Text(destination.label),
               icon: destination.icon,
@@ -111,19 +117,53 @@ class _HamburgerDropDown extends State<HamburgerDropDown> {
   }
 }
 
-class ExampleDestination {
-  const ExampleDestination(this.label, this.icon, this.selectedIcon);
+class Pages {
+  const Pages(this.label, this.icon, this.selectedIcon);
 
   final String label;
   final Widget icon;
   final Widget selectedIcon;
 }
 
-const List<ExampleDestination> destinations = <ExampleDestination>[
-  ExampleDestination(
-      'Messages', Icon(Icons.widgets_outlined), Icon(Icons.widgets)),
-  ExampleDestination(
-      'Profile', Icon(Icons.format_paint_outlined), Icon(Icons.format_paint)),
-  ExampleDestination(
-      'Settings', Icon(Icons.settings_outlined), Icon(Icons.settings)),
+const List<Pages> destinations = <Pages>[
+  Pages(
+    'Home',
+    Icon(Icons.widgets_outlined),
+    Icon(Icons.widgets),
+  ),
+  Pages(
+    'About',
+    Icon(Icons.format_paint_outlined),
+    Icon(Icons.format_paint),
+  ),
+  Pages(
+    'Services',
+    Icon(Icons.settings_outlined),
+    Icon(Icons.settings),
+  ),
+  Pages(
+    'Pricing',
+    Icon(Icons.settings_outlined),
+    Icon(Icons.settings),
+  ),
+  Pages(
+    'Reviews',
+    Icon(Icons.settings_outlined),
+    Icon(Icons.settings),
+  ),
+  Pages(
+    'FAQ',
+    Icon(Icons.settings_outlined),
+    Icon(Icons.settings),
+  ),
+  Pages(
+    'Blog',
+    Icon(Icons.settings_outlined),
+    Icon(Icons.settings),
+  ),
+  Pages(
+    'Contact',
+    Icon(Icons.settings_outlined),
+    Icon(Icons.settings),
+  ),
 ];
