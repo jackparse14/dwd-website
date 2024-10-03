@@ -24,7 +24,7 @@ class HamburgerDropDown extends StatelessWidget {
             color: AppColors.primaryColor,
           ),
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+            padding: const EdgeInsets.all(16),
             child: Text(
               AppInfo.title,
               textAlign: TextAlign.center,
