@@ -41,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     Widget page;
+    final Size screenSize = MediaQuery.sizeOf(context);
     page = switch (selectedIndex) {
       0 => LandingPage(),
       1 => AboutPage(),
@@ -69,15 +70,73 @@ class _MyHomePageState extends State<MyHomePage> {
                       style: AppFonts.headingStyle(),
                     ),
                     actions: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          right: 8.0,
+                      Visibility(
+                        visible: screenSize.width > 1000,
+                        child: Row(
+                          children: [
+                            ElevatedButton(
+                              onPressed: () => setState(() {
+                                selectedIndex = 0;
+                              }),
+                              child: const Text('Home'),
+                            ),
+                            ElevatedButton(
+                              onPressed: () => setState(() {
+                                selectedIndex = 1;
+                              }),
+                              child: const Text('About'),
+                            ),
+                            ElevatedButton(
+                              onPressed: () => setState(() {
+                                selectedIndex = 2;
+                              }),
+                              child: const Text('Services'),
+                            ),
+                            ElevatedButton(
+                              onPressed: () => setState(() {
+                                selectedIndex = 3;
+                              }),
+                              child: const Text('Pricing'),
+                            ),
+                            ElevatedButton(
+                              onPressed: () => setState(() {
+                                selectedIndex = 4;
+                              }),
+                              child: const Text('Reviews'),
+                            ),
+                            ElevatedButton(
+                              onPressed: () => setState(() {
+                                selectedIndex = 5;
+                              }),
+                              child: const Text('FAQ'),
+                            ),
+                            ElevatedButton(
+                              onPressed: () => setState(() {
+                                selectedIndex = 6;
+                              }),
+                              child: const Text('Blog'),
+                            ),
+                            ElevatedButton(
+                              onPressed: () => setState(() {
+                                selectedIndex = 7;
+                              }),
+                              child: const Text('Contact'),
+                            ),
+                          ],
                         ),
-                        child: IconButton(
-                          icon: const Icon(Icons.menu),
-                          onPressed: () {
-                            _scaffoldKey.currentState?.openEndDrawer();
-                          },
+                      ),
+                      Visibility(
+                        visible: screenSize.width <= 1000,
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            right: 8.0,
+                          ),
+                          child: IconButton(
+                            icon: const Icon(Icons.menu),
+                            onPressed: () {
+                              _scaffoldKey.currentState?.openEndDrawer();
+                            },
+                          ),
                         ),
                       ),
                     ],
