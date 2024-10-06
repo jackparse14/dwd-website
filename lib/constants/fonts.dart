@@ -22,11 +22,13 @@ class AppFonts {
   static TextStyle navigationStyle({
     double fontSize = 20,
     FontWeight fontWeight = FontWeight.normal,
+    Color color = AppColors.darkColor,
     TextDecoration? decoration,
   }) {
     return GoogleFonts.aBeeZee(
       fontSize: fontSize,
       fontWeight: fontWeight,
+      color: color,
       decoration: decoration,
     );
   }

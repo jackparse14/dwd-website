@@ -74,54 +74,81 @@ class _MyHomePageState extends State<MyHomePage> {
                         visible: screenSize.width > 1000,
                         child: Row(
                           children: [
-                            ElevatedButton(
+                            TextButton(
                               onPressed: () => setState(() {
                                 selectedIndex = 0;
                               }),
-                              child: const Text('Home'),
+                              child: Text(
+                                'Home',
+                                style: AppFonts.navigationStyle(fontSize: 16),
+                              ),
                             ),
-                            ElevatedButton(
+                            TextButton(
                               onPressed: () => setState(() {
                                 selectedIndex = 1;
                               }),
-                              child: const Text('About'),
+                              child: Text(
+                                'About',
+                                style: AppFonts.navigationStyle(fontSize: 16),
+                              ),
                             ),
-                            ElevatedButton(
+                            TextButton(
                               onPressed: () => setState(() {
                                 selectedIndex = 2;
                               }),
-                              child: const Text('Services'),
+                              child: Text(
+                                'Services',
+                                style: AppFonts.navigationStyle(fontSize: 16),
+                              ),
                             ),
-                            ElevatedButton(
+                            TextButton(
                               onPressed: () => setState(() {
                                 selectedIndex = 3;
                               }),
-                              child: const Text('Pricing'),
+                              child: Text(
+                                'Pricing',
+                                style: AppFonts.navigationStyle(fontSize: 16),
+                              ),
                             ),
-                            ElevatedButton(
+                            TextButton(
                               onPressed: () => setState(() {
                                 selectedIndex = 4;
                               }),
-                              child: const Text('Reviews'),
+                              child: Text(
+                                'Reviews',
+                                style: AppFonts.navigationStyle(fontSize: 16),
+                              ),
                             ),
-                            ElevatedButton(
+                            TextButton(
                               onPressed: () => setState(() {
                                 selectedIndex = 5;
                               }),
-                              child: const Text('FAQ'),
+                              child: Text(
+                                'FAQ',
+                                style: AppFonts.navigationStyle(fontSize: 16),
+                              ),
                             ),
-                            ElevatedButton(
+                            TextButton(
                               onPressed: () => setState(() {
                                 selectedIndex = 6;
                               }),
-                              child: const Text('Blog'),
+                              child: Text(
+                                'Blog',
+                                style: AppFonts.navigationStyle(fontSize: 16),
+                              ),
                             ),
-                            ElevatedButton(
+                            TextButton(
                               onPressed: () => setState(() {
                                 selectedIndex = 7;
                               }),
-                              child: const Text('Contact'),
+                              child: Text(
+                                'Contact',
+                                style: AppFonts.navigationStyle(fontSize: 16),
+                              ),
                             ),
+                            const SizedBox(
+                              width: 12,
+                            )
                           ],
                         ),
                       ),
