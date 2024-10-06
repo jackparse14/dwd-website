@@ -3,6 +3,7 @@ import 'package:dwd_website/constants/fonts.dart';
 import 'package:dwd_website/constants/info.dart';
 import 'package:dwd_website/pages/pages.dart';
 import 'package:dwd_website/widgets/hamburger.dart';
+import 'package:dwd_website/widgets/navigation_bar_buttons.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -38,24 +39,33 @@ class _MyHomePageState extends State<MyHomePage> {
   int selectedIndex = 0;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
+  final List<Widget> pages = [
+    LandingPage(),
+    AboutPage(),
+    ServicesPage(),
+    PricingPage(),
+    ReviewsPage(),
+    FAQPage(),
+    BlogPage(),
+    ContactPage(),
+  ];
+
+  void _onNavSelected(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    Widget page;
     final Size screenSize = MediaQuery.sizeOf(context);
-    page = switch (selectedIndex) {
-      0 => LandingPage(),
-      1 => AboutPage(),
-      2 => ServicesPage(),
-      3 => PricingPage(),
-      4 => ReviewsPage(),
-      5 => FAQPage(),
-      6 => BlogPage(),
-      7 => ContactPage(),
-      _ => throw UnimplementedError('no widget for $selectedIndex')
-    };
     return LayoutBuilder(
       builder: (context, constraints) {
         return Scaffold(
+          // bottomSheet: Container(
+          //   height: 100,
+          //   color: Colors.pink,
+          // ),
           key: _scaffoldKey,
           body: SafeArea(
             child: Column(
@@ -63,6 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: AppBar(
+                    toolbarHeight: 80.0,
                     backgroundColor:
                         Theme.of(context).colorScheme.inversePrimary,
                     title: Text(
@@ -70,93 +81,18 @@ class _MyHomePageState extends State<MyHomePage> {
                       style: AppFonts.headingStyle(),
                     ),
                     actions: [
-                      Visibility(
-                        visible: screenSize.width > 1000,
-                        child: Row(
-                          children: [
-                            TextButton(
-                              onPressed: () => setState(() {
-                                selectedIndex = 0;
-                              }),
-                              child: Text(
-                                'Home',
-                                style: AppFonts.navigationStyle(fontSize: 16),
-                              ),
-                            ),
-                            TextButton(
-                              onPressed: () => setState(() {
-                                selectedIndex = 1;
-                              }),
-                              child: Text(
-                                'About',
-                                style: AppFonts.navigationStyle(fontSize: 16),
-                              ),
-                            ),
-                            TextButton(
-                              onPressed: () => setState(() {
-                                selectedIndex = 2;
-                              }),
-                              child: Text(
-                                'Services',
-                                style: AppFonts.navigationStyle(fontSize: 16),
-                              ),
-                            ),
-                            TextButton(
-                              onPressed: () => setState(() {
-                                selectedIndex = 3;
-                              }),
-                              child: Text(
-                                'Pricing',
-                                style: AppFonts.navigationStyle(fontSize: 16),
-                              ),
-                            ),
-                            TextButton(
-                              onPressed: () => setState(() {
-                                selectedIndex = 4;
-                              }),
-                              child: Text(
-                                'Reviews',
-                                style: AppFonts.navigationStyle(fontSize: 16),
-                              ),
-                            ),
-                            TextButton(
-                              onPressed: () => setState(() {
-                                selectedIndex = 5;
-                              }),
-                              child: Text(
-                                'FAQ',
-                                style: AppFonts.navigationStyle(fontSize: 16),
-                              ),
-                            ),
-                            TextButton(
-                              onPressed: () => setState(() {
-                                selectedIndex = 6;
-                              }),
-                              child: Text(
-                                'Blog',
-                                style: AppFonts.navigationStyle(fontSize: 16),
-                              ),
-                            ),
-                            TextButton(
-                              onPressed: () => setState(() {
-                                selectedIndex = 7;
-                              }),
-                              child: Text(
-                                'Contact',
-                                style: AppFonts.navigationStyle(fontSize: 16),
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 12,
-                            )
-                          ],
+                      if (screenSize.width > 1000)
+                        NavigationBarButtons(
+                          selectedIndex: selectedIndex,
+                          onSelect: _onNavSelected,
                         ),
+                      const SizedBox(
+                        width: 12.0,
                       ),
-                      Visibility(
-                        visible: screenSize.width <= 1000,
-                        child: Padding(
+                      if (screenSize.width <= 1000)
+                        Padding(
                           padding: const EdgeInsets.only(
-                            right: 8.0,
+                            right: 12.0,
                           ),
                           child: IconButton(
                             icon: const Icon(Icons.menu),
@@ -165,7 +101,6 @@ class _MyHomePageState extends State<MyHomePage> {
                             },
                           ),
                         ),
-                      ),
                     ],
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
@@ -173,9 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    child: page,
-                  ),
+                  child: pages[selectedIndex],
                 ),
               ],
             ),
@@ -183,9 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
           endDrawer: HamburgerDropDown(
             selectedIndex: selectedIndex,
             onDestinationSelected: (index) {
-              setState(() {
-                selectedIndex = index;
-              });
+              _onNavSelected(index);
               Navigator.of(context).pop();
             },
           ),
@@ -194,3 +125,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+//}
