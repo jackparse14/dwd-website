@@ -38,6 +38,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int selectedIndex = 0;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final scrollController = ScrollController();
 
   final List<Widget> pages = [
     LandingPage(),
@@ -63,60 +64,48 @@ class _MyHomePageState extends State<MyHomePage> {
       builder: (context, constraints) {
         return Scaffold(
           key: _scaffoldKey,
-          body: SafeArea(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: AppBar(
-                    toolbarHeight: 80.0,
-                    backgroundColor:
-                        Theme.of(context).colorScheme.inversePrimary,
-                    title: Text(
-                      AppInfo.title,
-                      style: AppFonts.headingStyle(),
-                    ),
-                    actions: [
-                      if (screenSize.width > 1000)
-                        NavigationBarButtons(
-                          selectedIndex: selectedIndex,
-                          onSelect: _onNavSelected,
-                        ),
-                      const SizedBox(
-                        width: 12.0,
+          body: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: AppBar(
+                  toolbarHeight: 80.0,
+                  backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+                  title: Text(
+                    AppInfo.title,
+                    style: AppFonts.headingStyle(),
+                  ),
+                  actions: [
+                    if (screenSize.width > 1000)
+                      NavigationBarButtons(
+                        selectedIndex: selectedIndex,
+                        onSelect: _onNavSelected,
                       ),
-                      if (screenSize.width <= 1000)
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            right: 12.0,
-                          ),
-                          child: IconButton(
-                            icon: const Icon(Icons.menu),
-                            onPressed: () {
-                              _scaffoldKey.currentState?.openEndDrawer();
-                            },
-                          ),
-                        ),
-                    ],
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+                    const SizedBox(
+                      width: 12.0,
                     ),
+                    if (screenSize.width <= 1000)
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          right: 12.0,
+                        ),
+                        child: IconButton(
+                          icon: const Icon(Icons.menu),
+                          onPressed: () {
+                            _scaffoldKey.currentState?.openEndDrawer();
+                          },
+                        ),
+                      ),
+                  ],
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: constraints.maxHeight,
-                          child: pages[selectedIndex],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
+              ),
+              Expanded(
+                child: pages[selectedIndex],
+              ),
+            ],
           ),
           endDrawer: HamburgerDropDown(
             selectedIndex: selectedIndex,

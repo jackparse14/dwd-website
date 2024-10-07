@@ -6,22 +6,27 @@ import 'package:flutter/material.dart';
 class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomSheet: BottomAppBar(
-        color: Theme.of(context).colorScheme.inversePrimary,
-        child: Text(
-          AppInfo.title,
-          style: AppFonts.headingStyle(),
+    return ListView(
+      children: [
+        Center(
+          child: Container(
+            child: const Text('Landing Page'),
+            width: double.infinity,
+            height: 1000,
+            color: Colors.red,
+          ),
         ),
-      ),
-      body: Center(
-        child: Container(
-          child: const Text('Landing Page'),
-          width: double.infinity,
-          color: Colors.red,
+        Center(
+          child: Container(
+            child: const Text('Landing Page'),
+            width: double.infinity,
+            height: 1000,
+            color: Colors.blue,
+          ),
         ),
-      ),
-      //backgroundColor: AppColors.primaryColor,
+      ],
     );
+
+    //backgroundColor: AppColors.primaryColor,
   }
 }
