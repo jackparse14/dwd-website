@@ -62,10 +62,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return LayoutBuilder(
       builder: (context, constraints) {
         return Scaffold(
-          // bottomSheet: Container(
-          //   height: 100,
-          //   color: Colors.pink,
-          // ),
           key: _scaffoldKey,
           body: SafeArea(
             child: Column(
@@ -108,7 +104,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 Expanded(
-                  child: pages[selectedIndex],
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: constraints.maxHeight,
+                          child: pages[selectedIndex],
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -125,4 +130,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-//}
