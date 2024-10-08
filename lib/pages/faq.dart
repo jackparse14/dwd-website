@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class FAQPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('FAQ Page'),
+    return Center(
+      child: Container(
+        child: const Text('FAQ Page'),
+        width: double.infinity,
+        height: 1000,
+        color: Colors.white,
       ),
-      //backgroundColor: AppColors.primaryColor,
     );
   }
 }

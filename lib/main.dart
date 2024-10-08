@@ -2,6 +2,7 @@ import 'package:dwd_website/constants/colors.dart';
 import 'package:dwd_website/constants/fonts.dart';
 import 'package:dwd_website/constants/info.dart';
 import 'package:dwd_website/pages/pages.dart';
+import 'package:dwd_website/widgets/footer.dart';
 import 'package:dwd_website/widgets/hamburger.dart';
 import 'package:dwd_website/widgets/navigation_bar_buttons.dart';
 import 'package:flutter/material.dart';
@@ -103,7 +104,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               Expanded(
-                child: pages[selectedIndex],
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      pages[selectedIndex],
+                      Footer(),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),

@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class BlogPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Blog Page'),
+    return Center(
+      child: Container(
+        child: const Text('Blog Page'),
+        width: double.infinity,
+        height: 1000,
+        color: Colors.grey,
       ),
-      //backgroundColor: AppColors.primaryColor,
     );
   }
 }
