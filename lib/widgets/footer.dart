@@ -1,4 +1,5 @@
 import 'package:dwd_website/constants/colors.dart';
+import 'package:dwd_website/constants/fonts.dart';
 import 'package:dwd_website/constants/info.dart';
 import 'package:dwd_website/widgets/navigation_bar_buttons.dart';
 import 'package:flutter/material.dart';
@@ -19,13 +20,13 @@ class Footer extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    const Text(
+                    Text(
                       AppInfo.title,
-                      style: TextStyle(color: AppColors.lightColor),
+                      style: AppFonts.headingStyle(color: AppColors.lightColor),
                     ),
-                    const Text(
+                    Text(
                       'Lorem Ipsum',
-                      style: TextStyle(color: AppColors.lightColor),
+                      style: Theme.of(context).primaryTextTheme.bodyLarge,
                     ),
                     ElevatedButton(
                       onPressed: () => 'Button Pressed',
@@ -35,35 +36,44 @@ class Footer extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    const Text(
+                    Text(
                       'Links:',
-                      style: TextStyle(color: AppColors.lightColor),
+                      style: AppFonts.headingStyle(color: AppColors.lightColor),
                     ),
                     NavigationBarButtons(
                       selectedIndex: 0,
                       onSelect: _onNavSelected,
                       direction: Axis.vertical,
+                      textStyle: Theme.of(context).primaryTextTheme.bodyLarge,
                     ),
                   ],
                 ),
-                const Column(
+                Column(
                   children: [
                     Text(
                       'Contact Info:',
-                      style: TextStyle(color: AppColors.lightColor),
+                      style: AppFonts.headingStyle(color: AppColors.lightColor),
                     ),
                     Text(
-                      'Lorem Ipsum',
-                      style: TextStyle(color: AppColors.lightColor),
+                      '07525 234494',
+                      style: Theme.of(context).primaryTextTheme.bodyLarge,
+                    ),
+                    Text(
+                      'jack.parsons@dartfordwebdesigns.co.uk',
+                      style: Theme.of(context).primaryTextTheme.bodyLarge,
+                    ),
+                    Text(
+                      'Dartford',
+                      style: Theme.of(context).primaryTextTheme.bodyLarge,
                     ),
                   ],
                 ),
               ],
             ),
             const Divider(),
-            const Text(
+            Text(
               '© Copyright 2024 Dartford Web Designs',
-              style: TextStyle(color: AppColors.lightColor),
+              style: Theme.of(context).primaryTextTheme.bodySmall,
             ),
           ],
         ),

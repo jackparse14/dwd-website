@@ -5,6 +5,7 @@ class NavigationBarButtons extends StatelessWidget {
   final int selectedIndex;
   final ValueChanged<int> onSelect;
   final Axis direction;
+  final TextStyle? textStyle;
 
   static const List<String> buttons = [
     'Home',
@@ -21,27 +22,28 @@ class NavigationBarButtons extends StatelessWidget {
     Key? key,
     required this.selectedIndex,
     required this.onSelect,
-    required this.direction,
+    this.textStyle,
+    this.direction = Axis.horizontal,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return direction == Axis.horizontal
         ? Row(
-            children: _buildButtons(),
+            children: _buildButtons(context),
           )
         : Column(
-            children: _buildButtons(),
+            children: _buildButtons(context),
           );
   }
 
-  List<Widget> _buildButtons() {
+  List<Widget> _buildButtons(context) {
     return List.generate(buttons.length, (index) {
       return TextButton(
         onPressed: () => onSelect(index),
         child: Text(
           buttons[index],
-          style: AppFonts.navigationStyle(fontSize: 16),
+          style: textStyle ?? AppFonts.navigationStyle(fontSize: 16),
         ),
       );
     });

@@ -8,11 +8,11 @@ import 'package:dwd_website/widgets/navigation_bar_buttons.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
           seedColor: AppColors.primaryColor,
         ),
-        textTheme: AppFonts.headingFont,
         useMaterial3: true,
       ),
       home: MyHomePage(),
@@ -81,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       NavigationBarButtons(
                         selectedIndex: selectedIndex,
                         onSelect: _onNavSelected,
-                        direction: Axis.horizontal,
+                        textStyle: Theme.of(context).textTheme.bodyLarge,
                       ),
                     const SizedBox(
                       width: 12.0,
