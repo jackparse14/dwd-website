@@ -81,6 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       NavigationBarButtons(
                         selectedIndex: selectedIndex,
                         onSelect: _onNavSelected,
+                        direction: Axis.horizontal,
                       ),
                     const SizedBox(
                       width: 12.0,
