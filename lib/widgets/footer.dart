@@ -1,5 +1,4 @@
 import 'package:dwd_website/constants/colors.dart';
-import 'package:dwd_website/constants/fonts.dart';
 import 'package:dwd_website/constants/info.dart';
 import 'package:dwd_website/widgets/navigation_bar_buttons.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +21,7 @@ class Footer extends StatelessWidget {
                   children: [
                     Text(
                       AppInfo.title,
-                      style: AppFonts.headingStyle(color: AppColors.lightColor),
+                      style: Theme.of(context).textTheme.headlineLarge,
                     ),
                     Text(
                       'Lorem Ipsum',
@@ -38,7 +37,7 @@ class Footer extends StatelessWidget {
                   children: [
                     Text(
                       'Links:',
-                      style: AppFonts.headingStyle(color: AppColors.lightColor),
+                      style: Theme.of(context).textTheme.headlineLarge,
                     ),
                     NavigationBarButtons(
                       selectedIndex: 0,
@@ -52,7 +51,7 @@ class Footer extends StatelessWidget {
                   children: [
                     Text(
                       'Contact Info:',
-                      style: AppFonts.headingStyle(color: AppColors.lightColor),
+                      style: Theme.of(context).textTheme.headlineLarge,
                     ),
                     Text(
                       '07525 234494',

@@ -1,5 +1,4 @@
-import 'package:dwd_website/constants/colors.dart';
-import 'package:dwd_website/constants/fonts.dart';
+import 'package:dwd_website/constants/theme.dart';
 import 'package:dwd_website/constants/info.dart';
 import 'package:dwd_website/pages/pages.dart';
 import 'package:dwd_website/widgets/footer.dart';
@@ -19,12 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: AppInfo.title,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primaryColor,
-        ),
-        useMaterial3: true,
-      ),
+      theme: AppTheme.theme,
       home: MyHomePage(),
     );
   }
@@ -73,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   backgroundColor: Theme.of(context).colorScheme.inversePrimary,
                   title: Text(
                     AppInfo.title,
-                    style: AppFonts.headingStyle(),
+                    style: Theme.of(context).textTheme.headlineLarge,
                   ),
                   actions: [
                     if (screenSize.width > 1000)

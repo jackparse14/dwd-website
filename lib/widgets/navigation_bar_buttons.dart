@@ -1,4 +1,3 @@
-import 'package:dwd_website/constants/fonts.dart';
 import 'package:flutter/material.dart';
 
 class NavigationBarButtons extends StatelessWidget {
@@ -43,7 +42,7 @@ class NavigationBarButtons extends StatelessWidget {
         onPressed: () => onSelect(index),
         child: Text(
           buttons[index],
-          style: textStyle ?? AppFonts.navigationStyle(fontSize: 16),
+          style: textStyle ?? Theme.of(context).textTheme.headlineLarge,
         ),
       );
     });

@@ -1,5 +1,4 @@
 import 'package:dwd_website/constants/colors.dart';
-import 'package:dwd_website/constants/fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:dwd_website/constants/info.dart';
 
@@ -28,7 +27,7 @@ class HamburgerDropDown extends StatelessWidget {
             child: Text(
               AppInfo.title,
               textAlign: TextAlign.center,
-              style: AppFonts.headingStyle(color: AppColors.lightColor),
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
           ),
         ),
@@ -38,7 +37,7 @@ class HamburgerDropDown extends StatelessWidget {
             return NavigationDrawerDestination(
               label: Text(
                 destination.label,
-                style: AppFonts.navigationStyle(),
+                style: Theme.of(context).textTheme.headlineLarge,
               ),
               icon: destination.icon,
               selectedIcon: destination.selectedIcon,
