@@ -4,9 +4,13 @@ import 'package:dwd_website/widgets/navigation_bar_buttons.dart';
 import 'package:flutter/material.dart';
 
 class Footer extends StatelessWidget {
-  void _onNavSelected(int index) {
-    print(index);
-  }
+  final int selectedIndex;
+  final ValueChanged<int> onSelect;
+
+  const Footer({
+    required this.selectedIndex,
+    required this.onSelect,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +47,8 @@ class Footer extends StatelessWidget {
                       style: Theme.of(context).primaryTextTheme.headlineLarge,
                     ),
                     NavigationBarButtons(
-                      selectedIndex: 0,
-                      onSelect: _onNavSelected,
+                      selectedIndex: selectedIndex,
+                      onSelect: onSelect,
                       direction: Axis.vertical,
                       textStyle: Theme.of(context).primaryTextTheme.bodyMedium,
                     ),

@@ -102,7 +102,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Column(
                     children: [
                       pages[selectedIndex],
-                      Footer(),
+                      Footer(
+                        selectedIndex: selectedIndex,
+                        onSelect: _onNavSelected,
+                      ),
                     ],
                   ),
                 ),

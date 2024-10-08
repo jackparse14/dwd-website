@@ -1,4 +1,5 @@
 import 'package:dwd_website/constants/colors.dart';
+import 'package:dwd_website/pages/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:dwd_website/constants/info.dart';
 
@@ -52,54 +53,3 @@ class HamburgerDropDown extends StatelessWidget {
     );
   }
 }
-
-class Pages {
-  const Pages(this.label, this.icon, this.selectedIcon);
-
-  final String label;
-  final Widget icon;
-  final Widget selectedIcon;
-}
-
-const List<Pages> destinations = <Pages>[
-  Pages(
-    'Home',
-    Icon(Icons.home_outlined),
-    Icon(Icons.home),
-  ),
-  Pages(
-    'About',
-    Icon(Icons.info_outlined),
-    Icon(Icons.info),
-  ),
-  Pages(
-    'Services',
-    Icon(Icons.mouse_outlined),
-    Icon(Icons.mouse),
-  ),
-  Pages(
-    'Pricing',
-    Icon(Icons.sell_outlined),
-    Icon(Icons.sell),
-  ),
-  Pages(
-    'Reviews',
-    Icon(Icons.remove_red_eye_outlined),
-    Icon(Icons.remove_red_eye),
-  ),
-  Pages(
-    'FAQ',
-    Icon(Icons.help_outline),
-    Icon(Icons.help),
-  ),
-  Pages(
-    'Blog',
-    Icon(Icons.edit_outlined),
-    Icon(Icons.edit),
-  ),
-  Pages(
-    'Contact',
-    Icon(Icons.call_outlined),
-    Icon(Icons.call),
-  ),
-];
