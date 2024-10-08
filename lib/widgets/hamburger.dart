@@ -27,7 +27,7 @@ class HamburgerDropDown extends StatelessWidget {
             child: Text(
               AppInfo.title,
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headlineLarge,
+              style: Theme.of(context).primaryTextTheme.headlineLarge,
             ),
           ),
         ),
@@ -37,7 +37,7 @@ class HamburgerDropDown extends StatelessWidget {
             return NavigationDrawerDestination(
               label: Text(
                 destination.label,
-                style: Theme.of(context).textTheme.headlineLarge,
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
               icon: destination.icon,
               selectedIcon: destination.selectedIcon,

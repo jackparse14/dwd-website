@@ -21,15 +21,18 @@ class Footer extends StatelessWidget {
                   children: [
                     Text(
                       AppInfo.title,
-                      style: Theme.of(context).textTheme.headlineLarge,
+                      style: Theme.of(context).primaryTextTheme.headlineLarge,
                     ),
                     Text(
                       'Lorem Ipsum',
-                      style: Theme.of(context).primaryTextTheme.bodyLarge,
+                      style: Theme.of(context).primaryTextTheme.bodyMedium,
                     ),
                     ElevatedButton(
                       onPressed: () => 'Button Pressed',
-                      child: const Text('Get Started!'),
+                      child: Text(
+                        'Get Started!',
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
                     ),
                   ],
                 ),
@@ -37,13 +40,13 @@ class Footer extends StatelessWidget {
                   children: [
                     Text(
                       'Links:',
-                      style: Theme.of(context).textTheme.headlineLarge,
+                      style: Theme.of(context).primaryTextTheme.headlineLarge,
                     ),
                     NavigationBarButtons(
                       selectedIndex: 0,
                       onSelect: _onNavSelected,
                       direction: Axis.vertical,
-                      textStyle: Theme.of(context).primaryTextTheme.bodyLarge,
+                      textStyle: Theme.of(context).primaryTextTheme.bodyMedium,
                     ),
                   ],
                 ),
@@ -51,19 +54,19 @@ class Footer extends StatelessWidget {
                   children: [
                     Text(
                       'Contact Info:',
-                      style: Theme.of(context).textTheme.headlineLarge,
+                      style: Theme.of(context).primaryTextTheme.headlineLarge,
                     ),
                     Text(
                       '07525 234494',
-                      style: Theme.of(context).primaryTextTheme.bodyLarge,
+                      style: Theme.of(context).primaryTextTheme.bodyMedium,
                     ),
                     Text(
                       'jack.parsons@dartfordwebdesigns.co.uk',
-                      style: Theme.of(context).primaryTextTheme.bodyLarge,
+                      style: Theme.of(context).primaryTextTheme.bodyMedium,
                     ),
                     Text(
                       'Dartford',
-                      style: Theme.of(context).primaryTextTheme.bodyLarge,
+                      style: Theme.of(context).primaryTextTheme.bodyMedium,
                     ),
                   ],
                 ),

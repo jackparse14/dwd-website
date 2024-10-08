@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: Theme.of(context).textTheme.headlineLarge,
                   ),
                   actions: [
-                    if (screenSize.width > 1000)
+                    if (screenSize.width > 1200)
                       NavigationBarButtons(
                         selectedIndex: selectedIndex,
                         onSelect: _onNavSelected,
@@ -79,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     const SizedBox(
                       width: 12.0,
                     ),
-                    if (screenSize.width <= 1000)
+                    if (screenSize.width <= 1200)
                       Padding(
                         padding: const EdgeInsets.only(
                           right: 12.0,

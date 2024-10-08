@@ -14,19 +14,34 @@ class AppTheme {
           fontWeight: FontWeight.w800,
           color: AppColors.darkColor,
         ),
-        headlineMedium: GoogleFonts.oxanium(
-          fontSize: 24,
+        bodyLarge: GoogleFonts.oxanium(
+          fontSize: 20,
           fontWeight: FontWeight.w600,
           color: AppColors.darkColor,
         ),
-        bodyLarge: GoogleFonts.aBeeZee(
-          fontSize: 20,
+        bodyMedium: GoogleFonts.oxanium(
+          fontSize: 18,
           fontWeight: FontWeight.normal,
           color: AppColors.darkColor,
         ),
-        bodyMedium: GoogleFonts.aBeeZee(
-          fontSize: 16,
+        bodySmall: GoogleFonts.oxanium(
+          fontSize: 14,
+          color: AppColors.darkColor,
+        ),
+      ),
+      primaryTextTheme: TextTheme(
+        headlineLarge: GoogleFonts.oxanium(
+          fontSize: 32,
+          fontWeight: FontWeight.w800,
+          color: AppColors.lightColor,
+        ),
+        bodyMedium: GoogleFonts.oxanium(
+          fontSize: 18,
           fontWeight: FontWeight.normal,
+          color: AppColors.lightColor,
+        ),
+        bodySmall: GoogleFonts.oxanium(
+          fontSize: 14,
           color: AppColors.lightColor,
         ),
       ),
