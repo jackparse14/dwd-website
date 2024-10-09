@@ -67,37 +67,53 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: AppBar(
-                  toolbarHeight: 80.0,
-                  backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-                  title: Text(
-                    AppInfo.title,
-                    style: Theme.of(context).textTheme.headlineLarge,
-                  ),
-                  actions: [
-                    if (screenSize.width > 1200)
-                      Row(
-                        children: navButtons.buildButtons(context),
+                child: Stack(
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      height: 80,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.inversePrimary,
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(10),
+                        ),
                       ),
-                    const SizedBox(
-                      width: 12.0,
                     ),
-                    if (screenSize.width <= 1200)
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          right: 12.0,
-                        ),
-                        child: IconButton(
-                          icon: const Icon(Icons.menu),
-                          onPressed: () {
-                            _scaffoldKey.currentState?.openEndDrawer();
-                          },
+                    Center(
+                      child: Container(
+                        constraints: AppInfo.mainWrapper,
+                        child: AppBar(
+                          toolbarHeight: 80.0,
+                          backgroundColor: Colors.transparent,
+                          title: Text(
+                            AppInfo.title,
+                            style: Theme.of(context).textTheme.headlineLarge,
+                          ),
+                          actions: [
+                            if (screenSize.width > 1200)
+                              Row(
+                                children: navButtons.buildButtons(context),
+                              ),
+                            const SizedBox(
+                              width: 12.0,
+                            ),
+                            if (screenSize.width <= 1200)
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  right: 12.0,
+                                ),
+                                child: IconButton(
+                                  icon: const Icon(Icons.menu),
+                                  onPressed: () {
+                                    _scaffoldKey.currentState?.openEndDrawer();
+                                  },
+                                ),
+                              ),
+                          ],
                         ),
                       ),
+                    ),
                   ],
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
                 ),
               ),
               Expanded(
