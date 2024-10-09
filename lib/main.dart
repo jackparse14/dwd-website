@@ -57,45 +57,39 @@ class _MyHomePageState extends State<MyHomePage> {
       builder: (context, constraints) {
         return Scaffold(
           key: _scaffoldKey,
-          body: Column(
+          body: Stack(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Stack(
+              SingleChildScrollView(
+                child: Column(
                   children: [
-                    Container(
-                      width: double.infinity,
-                      height: 80,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.inversePrimary,
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(10),
-                        ),
-                      ),
-                    ),
-                    Center(
-                      child: Container(
-                        constraints: AppInfo.mainWrapper,
-                        child: Header(
-                          selectedIndex: selectedIndex,
-                          onSelect: _onNavSelected,
-                          scaffoldKey: _scaffoldKey,
-                        ),
-                      ),
+                    pages[selectedIndex],
+                    Footer(
+                      selectedIndex: selectedIndex,
+                      onSelect: _onNavSelected,
                     ),
                   ],
                 ),
               ),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      pages[selectedIndex],
-                      Footer(
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  width: double.infinity,
+                  height: 80,
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.inversePrimary,
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(10),
+                    ),
+                  ),
+                  child: Center(
+                    child: Container(
+                      constraints: AppInfo.mainWrapper,
+                      child: Header(
                         selectedIndex: selectedIndex,
                         onSelect: _onNavSelected,
+                        scaffoldKey: _scaffoldKey,
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ),
