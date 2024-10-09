@@ -14,11 +14,9 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final navButtons = NavigationBarButtons(
-      selectedIndex: selectedIndex,
-      onSelect: onSelect,
-      textStyle: Theme.of(context).primaryTextTheme.bodyMedium,
-    );
+    final Size screenSize = MediaQuery.sizeOf(context);
+    final bool isLargeScreen = screenSize.width > 1300;
+    final bool isMedScreen = screenSize.width > 900 && screenSize.width <= 1300;
 
     return Container(
       child: Padding(
@@ -30,79 +28,55 @@ class Footer extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(bottom: 80),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Column(
-                        children: [
-                          Text(
-                            AppInfo.title,
-                            style: Theme.of(context)
-                                .primaryTextTheme
-                                .headlineLarge,
-                          ),
-                          Text(
-                            '// TODO: PUT SLOGAN HERE',
-                            style:
-                                Theme.of(context).primaryTextTheme.bodyMedium,
-                          ),
-                          ElevatedButton(
-                            onPressed: () => 'Button Pressed',
-                            child: Text(
-                              'Get Started!',
-                              style: Theme.of(context).textTheme.bodyMedium,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const Spacer(),
-                      Column(
-                        children: [
-                          Text(
-                            'Links:',
-                            style: Theme.of(context)
-                                .primaryTextTheme
-                                .headlineLarge,
-                          ),
-                          SizedBox(
-                            width: 200,
-                            child: Wrap(
-                              children: navButtons.buildButtons(
-                                context,
-                                buttonWidth: 100,
+                  child: isLargeScreen
+                      ? Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(child: TitleSection()),
+                            Expanded(
+                              child: LinksSection(
+                                selectedIndex: selectedIndex,
+                                onSelect: onSelect,
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                      const Spacer(),
-                      Column(
-                        children: [
-                          Text(
-                            'Contact Info:',
-                            style: Theme.of(context)
-                                .primaryTextTheme
-                                .headlineLarge,
-                          ),
-                          Text(
-                            '07525 234494',
-                            style:
-                                Theme.of(context).primaryTextTheme.bodyMedium,
-                          ),
-                          Text(
-                            'jack.parsons@dartfordwebdesigns.co.uk',
-                            style:
-                                Theme.of(context).primaryTextTheme.bodyMedium,
-                          ),
-                          Text(
-                            'Dartford',
-                            style:
-                                Theme.of(context).primaryTextTheme.bodyMedium,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                            Expanded(child: ContactSection()),
+                          ],
+                        )
+                      : isMedScreen
+                          ? Column(
+                              children: [
+                                Row(
+                                  children: [Expanded(child: TitleSection())],
+                                ),
+                                const SizedBox(
+                                  height: 60,
+                                ),
+                                Row(
+                                  children: [
+                                    Expanded(
+                                      child: LinksSection(
+                                        selectedIndex: selectedIndex,
+                                        onSelect: onSelect,
+                                      ),
+                                    ),
+                                    Expanded(child: ContactSection()),
+                                  ],
+                                ),
+                              ],
+                            )
+                          : Column(
+                              children: [
+                                TitleSection(),
+                                const SizedBox(height: 60),
+                                LinksSection(
+                                  selectedIndex: selectedIndex,
+                                  onSelect: onSelect,
+                                ),
+                                const SizedBox(height: 60),
+                                ContactSection(),
+                              ],
+                            ),
                 ),
                 const Divider(),
                 Text(
@@ -116,6 +90,96 @@ class Footer extends StatelessWidget {
       ),
       width: double.infinity,
       color: AppColors.primaryColor,
+    );
+  }
+}
+
+class TitleSection extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          AppInfo.title,
+          style: Theme.of(context).primaryTextTheme.headlineLarge,
+        ),
+        Text(
+          '// TODO: PUT SLOGAN HERE',
+          style: Theme.of(context).primaryTextTheme.bodyMedium,
+        ),
+        const SizedBox(
+          height: 16,
+        ),
+        ElevatedButton(
+          onPressed: () => 'Button Pressed',
+          child: Text(
+            'Get Started!',
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class LinksSection extends StatelessWidget {
+  final int selectedIndex;
+  final ValueChanged<int> onSelect;
+
+  const LinksSection({
+    required this.selectedIndex,
+    required this.onSelect,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final navButtons = NavigationBarButtons(
+      selectedIndex: selectedIndex,
+      onSelect: onSelect,
+      textStyle: Theme.of(context).primaryTextTheme.bodyMedium,
+    );
+    return Column(
+      children: [
+        Text(
+          'Links:',
+          style: Theme.of(context).primaryTextTheme.headlineLarge,
+        ),
+        SizedBox(
+          width: 200,
+          child: Wrap(
+            children: navButtons.buildButtons(
+              context,
+              buttonWidth: 100,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class ContactSection extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          'Contact Info:',
+          style: Theme.of(context).primaryTextTheme.headlineLarge,
+        ),
+        Text(
+          '07525 234494',
+          style: Theme.of(context).primaryTextTheme.bodyMedium,
+        ),
+        Text(
+          'jack.parsons@dartfordwebdesigns.co.uk',
+          style: Theme.of(context).primaryTextTheme.bodyMedium,
+        ),
+        Text(
+          'Dartford, Kent, United Kingdom',
+          style: Theme.of(context).primaryTextTheme.bodyMedium,
+        ),
+      ],
     );
   }
 }

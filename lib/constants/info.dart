@@ -5,6 +5,6 @@ class AppInfo {
 
   static const BoxConstraints mainWrapper = BoxConstraints(
     minWidth: 100,
-    maxWidth: 1200,
+    maxWidth: 1500,
   );
 }
