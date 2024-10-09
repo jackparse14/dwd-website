@@ -54,6 +54,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.sizeOf(context);
+    final navButtons = NavigationBarButtons(
+      selectedIndex: selectedIndex,
+      onSelect: _onNavSelected,
+      textStyle: Theme.of(context).textTheme.bodyLarge,
+    );
     return LayoutBuilder(
       builder: (context, constraints) {
         return Scaffold(
@@ -71,10 +76,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   actions: [
                     if (screenSize.width > 1200)
-                      NavigationBarButtons(
-                        selectedIndex: selectedIndex,
-                        onSelect: _onNavSelected,
-                        textStyle: Theme.of(context).textTheme.bodyLarge,
+                      Row(
+                        children: navButtons.buildButtons(context),
                       ),
                     const SizedBox(
                       width: 12.0,

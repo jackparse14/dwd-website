@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class NavigationBarButtons extends StatelessWidget {
   final int selectedIndex;
   final ValueChanged<int> onSelect;
-  final Axis direction;
   final TextStyle? textStyle;
 
   static const List<String> buttons = [
@@ -22,29 +21,25 @@ class NavigationBarButtons extends StatelessWidget {
     required this.selectedIndex,
     required this.onSelect,
     this.textStyle,
-    this.direction = Axis.horizontal,
   }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return direction == Axis.horizontal
-        ? Row(
-            children: _buildButtons(context),
-          )
-        : Column(
-            children: _buildButtons(context),
-          );
-  }
-
-  List<Widget> _buildButtons(context) {
+  List<Widget> buildButtons(context, {double? buttonWidth}) {
     return List.generate(buttons.length, (index) {
-      return TextButton(
-        onPressed: () => onSelect(index),
-        child: Text(
-          buttons[index],
-          style: textStyle ?? Theme.of(context).textTheme.headlineLarge,
+      return SizedBox(
+        width: buttonWidth,
+        child: TextButton(
+          onPressed: () => onSelect(index),
+          child: Text(
+            buttons[index],
+            style: textStyle ?? Theme.of(context).textTheme.headlineLarge,
+          ),
         ),
       );
     });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }

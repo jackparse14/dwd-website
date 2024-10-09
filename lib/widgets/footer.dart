@@ -14,12 +14,19 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final navButtons = NavigationBarButtons(
+      selectedIndex: selectedIndex,
+      onSelect: onSelect,
+      textStyle: Theme.of(context).primaryTextTheme.bodyMedium,
+    );
+
     return Container(
       child: Padding(
         padding: const EdgeInsets.all(100.0),
         child: Column(
           children: [
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Column(
                   children: [
@@ -40,20 +47,25 @@ class Footer extends StatelessWidget {
                     ),
                   ],
                 ),
+                const Spacer(),
                 Column(
                   children: [
                     Text(
                       'Links:',
                       style: Theme.of(context).primaryTextTheme.headlineLarge,
                     ),
-                    NavigationBarButtons(
-                      selectedIndex: selectedIndex,
-                      onSelect: onSelect,
-                      direction: Axis.vertical,
-                      textStyle: Theme.of(context).primaryTextTheme.bodyMedium,
+                    SizedBox(
+                      width: 250,
+                      child: Wrap(
+                        spacing: 20,
+                        runSpacing: 10,
+                        children:
+                            navButtons.buildButtons(context, buttonWidth: 100),
+                      ),
                     ),
                   ],
                 ),
+                const Spacer(),
                 Column(
                   children: [
                     Text(
