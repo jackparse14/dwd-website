@@ -83,6 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Container(
                         constraints: AppInfo.mainWrapper,
                         child: AppBar(
+                          scrolledUnderElevation: 0,
                           toolbarHeight: 80.0,
                           backgroundColor: Colors.transparent,
                           title: Text(
