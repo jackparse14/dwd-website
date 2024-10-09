@@ -1,3 +1,4 @@
+import 'package:dwd_website/constants/colors.dart';
 import 'package:dwd_website/constants/theme.dart';
 import 'package:dwd_website/constants/info.dart';
 import 'package:dwd_website/pages/pages.dart';
@@ -80,6 +81,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     borderRadius: const BorderRadius.all(
                       Radius.circular(10),
                     ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.primaryColor.withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 7,
+                        offset: const Offset(0, 5),
+                      ),
+                    ],
                   ),
                   child: Center(
                     child: Container(
