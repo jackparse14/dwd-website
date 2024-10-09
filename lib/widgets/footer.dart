@@ -20,7 +20,7 @@ class Footer extends StatelessWidget {
 
     return Container(
       child: Padding(
-        padding: const EdgeInsets.all(100.0),
+        padding: const EdgeInsets.symmetric(vertical: 100.0),
         child: Center(
           child: Container(
             constraints: AppInfo.mainWrapper,
