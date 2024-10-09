@@ -3,7 +3,7 @@ import 'package:dwd_website/constants/info.dart';
 import 'package:dwd_website/pages/pages.dart';
 import 'package:dwd_website/widgets/footer.dart';
 import 'package:dwd_website/widgets/hamburger.dart';
-import 'package:dwd_website/widgets/navigation_bar_buttons.dart';
+import 'package:dwd_website/widgets/header.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -53,12 +53,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.sizeOf(context);
-    final navButtons = NavigationBarButtons(
-      selectedIndex: selectedIndex,
-      onSelect: _onNavSelected,
-      textStyle: Theme.of(context).textTheme.bodyLarge,
-    );
     return LayoutBuilder(
       builder: (context, constraints) {
         return Scaffold(
@@ -82,35 +76,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     Center(
                       child: Container(
                         constraints: AppInfo.mainWrapper,
-                        child: AppBar(
-                          scrolledUnderElevation: 0,
-                          toolbarHeight: 80.0,
-                          backgroundColor: Colors.transparent,
-                          title: Text(
-                            AppInfo.title,
-                            style: Theme.of(context).textTheme.headlineLarge,
-                          ),
-                          actions: [
-                            if (screenSize.width > 1200)
-                              Row(
-                                children: navButtons.buildButtons(context),
-                              ),
-                            const SizedBox(
-                              width: 12.0,
-                            ),
-                            if (screenSize.width <= 1200)
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  right: 12.0,
-                                ),
-                                child: IconButton(
-                                  icon: const Icon(Icons.menu),
-                                  onPressed: () {
-                                    _scaffoldKey.currentState?.openEndDrawer();
-                                  },
-                                ),
-                              ),
-                          ],
+                        child: Header(
+                          selectedIndex: selectedIndex,
+                          onSelect: _onNavSelected,
+                          scaffoldKey: _scaffoldKey,
                         ),
                       ),
                     ),
