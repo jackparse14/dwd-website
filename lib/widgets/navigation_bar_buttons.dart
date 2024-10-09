@@ -20,7 +20,7 @@ class NavigationBarButtons extends StatelessWidget {
     Key? key,
     required this.selectedIndex,
     required this.onSelect,
-    this.textStyle,
+    required this.textStyle,
   }) : super(key: key);
 
   List<Widget> buildButtons(context, {double? buttonWidth}) {
@@ -31,7 +31,7 @@ class NavigationBarButtons extends StatelessWidget {
           onPressed: () => onSelect(index),
           child: Text(
             buttons[index],
-            style: textStyle ?? Theme.of(context).textTheme.headlineLarge,
+            style: textStyle,
           ),
         ),
       );
