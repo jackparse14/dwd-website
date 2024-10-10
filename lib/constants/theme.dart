@@ -14,6 +14,11 @@ class AppTheme {
           fontWeight: FontWeight.w800,
           color: AppColors.darkColor,
         ),
+        headlineMedium: GoogleFonts.oxanium(
+          fontSize: 72,
+          fontWeight: FontWeight.w900,
+          color: AppColors.darkColor,
+        ),
         bodyLarge: GoogleFonts.oxanium(
           fontSize: 20,
           fontWeight: FontWeight.w600,

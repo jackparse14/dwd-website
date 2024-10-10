@@ -7,7 +7,7 @@ class ReviewsPage extends StatelessWidget {
       child: Container(
         child: const Text('Reviews Page'),
         width: double.infinity,
-        height: 1000,
+        height: 2000,
         color: Colors.yellow,
       ),
     );

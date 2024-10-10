@@ -7,7 +7,7 @@ class PricingPage extends StatelessWidget {
       child: Container(
         child: const Text('Pricing Page'),
         width: double.infinity,
-        height: 1000,
+        height: 2000,
         color: Colors.red,
       ),
     );

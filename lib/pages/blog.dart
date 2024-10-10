@@ -7,7 +7,7 @@ class BlogPage extends StatelessWidget {
       child: Container(
         child: const Text('Blog Page'),
         width: double.infinity,
-        height: 1000,
+        height: 2000,
         color: Colors.grey,
       ),
     );

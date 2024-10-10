@@ -7,7 +7,7 @@ class FAQPage extends StatelessWidget {
       child: Container(
         child: const Text('FAQ Page'),
         width: double.infinity,
-        height: 1000,
+        height: 2000,
         color: Colors.white,
       ),
     );

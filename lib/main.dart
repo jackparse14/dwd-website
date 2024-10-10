@@ -63,6 +63,24 @@ class _MyHomePageState extends State<MyHomePage> {
               SingleChildScrollView(
                 child: Column(
                   children: [
+                    const SizedBox(
+                      height: 200,
+                    ),
+                    Container(
+                      child: (() {
+                        return switch (selectedIndex) {
+                          0 => Text(
+                              'Hello',
+                              style: Theme.of(context).textTheme.headlineMedium,
+                            ),
+                          1 => Text(
+                              'About',
+                              style: Theme.of(context).textTheme.headlineMedium,
+                            ),
+                          _ => pages[selectedIndex]
+                        };
+                      })(),
+                    ),
                     pages[selectedIndex],
                     Footer(
                       selectedIndex: selectedIndex,
