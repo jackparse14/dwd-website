@@ -8,6 +8,6 @@ class AppInfo {
     maxWidth: 1500,
   );
 
-  static const int mediumScreen = 1300;
-  static const int smallScreen = 600;
+  static const int mediumScreen = 1200;
+  static const int smallScreen = 900;
 }

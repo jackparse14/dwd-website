@@ -15,8 +15,9 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.sizeOf(context);
-    final bool isLargeScreen = screenSize.width > 1300;
-    final bool isMedScreen = screenSize.width > 900 && screenSize.width <= 1300;
+    final bool isLargeScreen = screenSize.width > AppInfo.mediumScreen + 100;
+    final bool isMedScreen = screenSize.width > AppInfo.smallScreen &&
+        screenSize.width <= AppInfo.mediumScreen + 100;
 
     return Container(
       child: Padding(

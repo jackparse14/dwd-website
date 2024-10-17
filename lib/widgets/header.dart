@@ -30,14 +30,14 @@ class Header extends StatelessWidget {
         style: Theme.of(context).textTheme.headlineLarge,
       ),
       actions: [
-        if (screenSize.width > 1200)
+        if (screenSize.width > AppInfo.mediumScreen)
           Row(
             children: navButtons.buildButtons(context),
           ),
         const SizedBox(
           width: 12.0,
         ),
-        if (screenSize.width <= 1200)
+        if (screenSize.width <= AppInfo.mediumScreen)
           Padding(
             padding: const EdgeInsets.only(
               right: 12.0,
