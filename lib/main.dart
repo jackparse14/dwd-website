@@ -67,11 +67,15 @@ class _MyHomePageState extends State<MyHomePage> {
                     const SizedBox(
                       height: 200,
                     ),
-                    Text(
-                      destinations[selectedIndex].label,
-                      style: Theme.of(context).textTheme.headlineMedium,
+                    if (selectedIndex != 0)
+                      Text(
+                        destinations[selectedIndex].label,
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                    Container(
+                      constraints: AppInfo.mainWrapper,
+                      child: pages[selectedIndex],
                     ),
-                    pages[selectedIndex],
                     Footer(
                       selectedIndex: selectedIndex,
                       onSelect: _onNavSelected,
