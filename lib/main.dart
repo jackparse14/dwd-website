@@ -58,6 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
       builder: (context, constraints) {
         return Scaffold(
           key: _scaffoldKey,
+          backgroundColor: AppColors.lightColor,
           body: Stack(
             children: [
               SingleChildScrollView(
@@ -66,20 +67,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     const SizedBox(
                       height: 200,
                     ),
-                    Container(
-                      child: (() {
-                        return switch (selectedIndex) {
-                          0 => Text(
-                              'Hello',
-                              style: Theme.of(context).textTheme.headlineMedium,
-                            ),
-                          1 => Text(
-                              'About',
-                              style: Theme.of(context).textTheme.headlineMedium,
-                            ),
-                          _ => pages[selectedIndex]
-                        };
-                      })(),
+                    Text(
+                      destinations[selectedIndex].label,
+                      style: Theme.of(context).textTheme.headlineMedium,
                     ),
                     pages[selectedIndex],
                     Footer(
