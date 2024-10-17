@@ -83,6 +83,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               ),
+              Container(
+                width: double.infinity,
+                height: 50,
+                color: AppColors.lightColor,
+              ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
                 child: Container(
