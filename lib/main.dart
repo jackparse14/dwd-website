@@ -84,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
                 child: Container(
                   width: double.infinity,
                   height: 80,
