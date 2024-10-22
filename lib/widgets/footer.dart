@@ -105,7 +105,7 @@ class TitleSection extends StatelessWidget {
           style: Theme.of(context).primaryTextTheme.headlineLarge,
         ),
         Text(
-          '// TODO: PUT SLOGAN HERE',
+          'Small Business & SEO Specialists',
           style: Theme.of(context).primaryTextTheme.bodyMedium,
         ),
         const SizedBox(

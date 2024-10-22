@@ -114,7 +114,7 @@ class MainLandingText extends StatelessWidget {
                 .copyWith(fontSize: textSize * 1.1),
           ),
           Text(
-            'Small Business & SEO Specialist',
+            'Small Business & SEO Specialists',
             style: Theme.of(context)
                 .textTheme
                 .headlineSmall!
