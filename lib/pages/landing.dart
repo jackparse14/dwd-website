@@ -6,7 +6,6 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.sizeOf(context);
-    //final bool isLargeScreen = screenSize.width > AppInfo.mediumScreen + 100;
     final bool isMedScreen = screenSize.width > AppInfo.smallScreen;
 
     return SizedBox(
@@ -27,8 +26,8 @@ class LandingPage extends StatelessWidget {
                   )
                 : Column(
                     children: [
-                      MainLandingPhoto(),
-                      MainLandingText(0.03),
+                      MainLandingPhoto(0.4),
+                      MainLandingText(0.03, 0.06),
                     ],
                   ),
           ),
@@ -40,12 +39,16 @@ class LandingPage extends StatelessWidget {
 }
 
 class MainLandingPhoto extends StatelessWidget {
+  final double containerWidthMultiplier;
+
+  MainLandingPhoto([this.containerWidthMultiplier = 0.2]);
+
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.sizeOf(context);
     final double screenWidth = screenSize.width;
-    final double containerWidth = screenWidth * 0.2;
-    final double imageRadius = screenWidth * 0.1;
+    final double containerWidth = screenWidth * containerWidthMultiplier;
+    final double imageRadius = screenWidth * (containerWidthMultiplier / 2);
     final double sizedBoxHeight = screenSize.height * 0.2;
     return Column(
       children: [
@@ -86,13 +89,17 @@ class MainLandingPhoto extends StatelessWidget {
 
 class MainLandingText extends StatelessWidget {
   final double sizedBoxHeightMultiplier;
-  MainLandingText([this.sizedBoxHeightMultiplier = 0.2]);
+  final double textSizeMultiplier;
+  MainLandingText([
+    this.sizedBoxHeightMultiplier = 0.2,
+    this.textSizeMultiplier = 0.025,
+  ]);
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.sizeOf(context);
     final double screenWidth = screenSize.width;
     final double sizedBoxHeight = screenSize.height * sizedBoxHeightMultiplier;
-    final double textSize = screenWidth * 0.025;
+    final double textSize = screenWidth * textSizeMultiplier;
     return Flexible(
       child: Column(
         children: [
