@@ -121,7 +121,7 @@ class MainLandingText extends StatelessWidget {
                 .copyWith(fontSize: textSize * 0.8),
           ),
           Text(
-            'We uses Custom Code and Custom Designs for each Job',
+            'We create 100% custom code and designs for each Job!',
             style: Theme.of(context)
                 .textTheme
                 .bodyLarge!
