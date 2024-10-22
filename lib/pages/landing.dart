@@ -6,14 +6,16 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.sizeOf(context);
-    final bool isMedScreen = screenSize.width > AppInfo.smallScreen;
+    final bool isLargeScreen = screenSize.width > AppInfo.mediumScreen + 100;
+    final bool isMedScreen = screenSize.width > AppInfo.smallScreen &&
+        screenSize.width <= AppInfo.mediumScreen + 100;
 
     return SizedBox(
       child: Column(
         children: [
           SizedBox(
             height: screenSize.height - 200,
-            child: isMedScreen
+            child: isLargeScreen
                 ? Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -24,12 +26,23 @@ class LandingPage extends StatelessWidget {
                       MainLandingText(),
                     ],
                   )
-                : Column(
-                    children: [
-                      MainLandingPhoto(0.4),
-                      MainLandingText(0.03, 0.06),
-                    ],
-                  ),
+                : isMedScreen
+                    ? Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          MainLandingPhoto(0.25),
+                          const SizedBox(
+                            width: 40,
+                          ),
+                          MainLandingText(0.15, 0.035),
+                        ],
+                      )
+                    : Column(
+                        children: [
+                          MainLandingPhoto(0.4),
+                          MainLandingText(0.03, 0.06),
+                        ],
+                      ),
           ),
         ],
       ),
