@@ -48,6 +48,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _onNavSelected(int index) {
     setState(() {
+      scrollController.animateTo(
+        0,
+        duration: const Duration(milliseconds: 50),
+        curve: Curves.easeIn,
+      );
       selectedIndex = index;
     });
   }
@@ -62,6 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
           body: Stack(
             children: [
               SingleChildScrollView(
+                controller: scrollController,
                 child: Column(
                   children: [
                     const SizedBox(
