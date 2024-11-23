@@ -1,5 +1,6 @@
 import 'package:dwd_website/constants/colors.dart';
 import 'package:dwd_website/constants/info.dart';
+import 'package:dwd_website/widgets/rounded_image.dart';
 import 'package:flutter/material.dart';
 
 class LandingPage extends StatelessWidget {
@@ -82,17 +83,11 @@ class MainLandingPhoto extends StatelessWidget {
               ),
             ],
           ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(27.0),
-            child: CircleAvatar(
-              maxRadius: imageRadius,
-              child: Image.asset(
-                'assets/Snapchat-1336896579 (1).jpg',
-                width: imageRadius * 4,
-                height: imageRadius * 4,
-                fit: BoxFit.cover,
-              ),
-            ),
+          child: RoundedImage(
+            maxRadius: imageRadius,
+            height: imageRadius * 4,
+            width: imageRadius * 4,
+            path: 'assets/Snapchat-1336896579 (1).jpg',
           ),
         ),
       ],
